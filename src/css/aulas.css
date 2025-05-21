@@ -102,7 +102,7 @@ body{
     background-color: rgba(34, 50, 44, 10%);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 1s ease-out;
+    transition: max-height .6s ease-out;
     border-radius: 0px 0px 10px 10px;
 
 }
