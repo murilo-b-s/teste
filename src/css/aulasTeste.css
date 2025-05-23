@@ -11,7 +11,7 @@ html{
 body{
     font-family: "Josefin Sans" !important;
     background-color: #fff2d0 !important;
-    height: 100vh;
+    /* height: 100vh; */
     position: relative;
 }
 .menu-responsivo{
@@ -21,8 +21,9 @@ body{
     background-color: #000;
     height: 150px;
     width: 100%;
-    position: relative;
+    position: fixed;
     display: flex;
+    top: 0;
 }
 
 .logo img{
@@ -107,6 +108,9 @@ body{
     color: #333;
 }
 
+.container-grande{
+    margin-top: 250px;
+}
 
 .container{
     margin: 90px 0;
@@ -302,6 +306,10 @@ footer .menu a{
 }
 
 @media (max-width: 430px) {
+    body{
+        height: 100vh;
+    }
+
     .cabecalho{
         height: 80px;
         z-index: 9;
@@ -389,11 +397,10 @@ footer .menu a{
         width: 150px;
         color: #fff2d0;
         font-size: 16px;
-        margin: 0px;
-        padding: 6px 12px;
+        padding: 3px 12px;
         text-decoration: none;
-        display: flex;
-        margin: 10px;
+        display: block;
+        margin: 8px;
     }
 
     .icon img{
@@ -415,8 +422,9 @@ footer .menu a{
 
     .menu-responsivo ul{
         width: 100%;
-        margin-right: 10px;
-        padding: 80px 0;    
+        margin-right: 5px;
+        padding: 0;    
+        display: block;   
     }
 
     .btn.open{
@@ -458,5 +466,33 @@ footer .menu a{
         min-height: 85%;
         position: relative;
         padding-bottom: 180px;
+        margin-top: 150px;
+    }
+
+    .menu-responsivo ul:first-child{
+        padding: 80px 0;
+    }
+
+
+    .mais-opcoes {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        margin: 0 10px;
+    }
+
+
+    .mais-opcoes.ativo {
+        max-height: 110px; 
+        margin: 0 10px;
+        padding-top: 0;
+    }
+
+    .mais-opcoes li a {
+        padding: 2px 20px;
+    }
+
+    .menu-responsivo ul li{
+        position: relative;
     }
 }

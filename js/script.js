@@ -36,3 +36,14 @@ btnAulas.addEventListener('click', (e) => {
     e.preventDefault();
     submenu.classList.toggle('ativo');
 });
+
+
+const submenuLinks = document.querySelectorAll('.mais-opcoes a');
+
+submenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('menu-responsivo').classList.remove('aberto');
+        document.getElementById('btn').classList.remove('open');
+        submenu.classList.remove('ativo'); // Opcional: fechar o submenu também
+    });
+});
