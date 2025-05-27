@@ -8,9 +8,13 @@ html{
     padding: 0;
 }
 
+h3{
+    scroll-margin-top: 170px;
+}
+
 body{
     font-family: "Josefin Sans" !important;
-    background-color: #fff2d0 !important;
+    background-color: #f3ebd6 !important;
     min-height: 100vh;
     position: relative;
     width: 100%;
@@ -20,7 +24,7 @@ body{
 }
 .cabecalho{
     background-color: #000;
-    height: 150px;
+    height: 120px;
     width: 100%;
     position: fixed;
     display: flex;
@@ -31,7 +35,7 @@ body{
 .logo img{
     width: 100px;
     position: absolute;
-    top: 35px;
+    top: 25px;
     left: 60px;
 }
 
@@ -68,7 +72,7 @@ body{
 
 .submenu ul{
     width: 200px;
-    background-color: #fff2d0;
+    background-color: #161616;
     border-radius: 0 5px 5px 5%;
     padding: 10px;
     position: absolute;
@@ -97,7 +101,7 @@ body{
 }
 
 .submenu li a{
-    color: #333;
+    color: #fff2d0;
 }
 
 .submenu:hover ul{
@@ -110,9 +114,13 @@ body{
     color: #333;
 }
 
+.correcao{
+    width: 100%;
+    height: 120px;
+}
 
 .modalidade{
-    margin: 200px 0 0 200px;
+    margin: 50px 0 0 200px;
 }
 
 .carrossel-container{
@@ -136,9 +144,24 @@ body{
 
 .item{
     min-width: 110px;
-    min-height: 110px;
-    background-color: #22322c;
+    height: 110px;
+    
+    background-color: #000;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;     
+}
+
+.item img{
+    width: 50px;
+    padding: 15px 0;
+}
+
+.item p{
+    color: #fff;
+    margin: 0;
 }
 
 .left img{
@@ -151,7 +174,7 @@ body{
 }
 
 .botao{
-    background-color: #fff2d0;
+    background-color: #f3ebd6;
     /* color: #fff; */
     border: none;
     padding: 10px;
@@ -166,7 +189,7 @@ body{
 .hr hr{
     width: 75%;
     color: #999;
-    margin: 0 auto;
+    margin: 50px auto;
 }
 
 .professores{
@@ -185,17 +208,68 @@ body{
     width: 350px;
     height: 400px;
     background-color: #fff;
-    /* overflow: hidden; */
+    position: relative;
 }
 
 .card img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(2);
-    object-position: left;
+    border-radius: 8px;
+}
+
+.card .card-preto{
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    height: 100%;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card:hover .card-preto{
+    opacity: 1;
+}
+
+.card-preto ul{
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.fotos{
+    margin: 50px 0 50px 200px;
+}
+
+.fotos-container{
+    width: 100%;
+    /* display: flex; */
+}
+
+.linha{
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: row;
 
 }
+.col{
+    width: 33%;
+    height: 100%;
+}
+
+.col img, .col video, .col iframe{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+}
+
 
 
 
