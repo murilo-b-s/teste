@@ -47,3 +47,17 @@ submenuLinks.forEach(link => {
         submenu.classList.remove('ativo'); // Opcional: fechar o submenu também
     });
 });
+
+
+const carousel = document.querySelector('.carrossel');
+const btnLeft = document.querySelector('.left');
+const btnRight = document.querySelector('.right');
+
+btnLeft.addEventListener('click', () => {
+    carousel.scrollBy({ left: -1000, behavior: 'smooth' });
+});
+
+btnRight.addEventListener('click', () => {
+    carousel.scrollBy({ left: 1000, behavior: 'smooth' });
+});
+
