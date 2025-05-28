@@ -120,7 +120,7 @@ body{
 }
 
 .modalidade{
-    margin: 50px 0 0 200px;
+    margin: 5% 0 0 13%;
 }
 
 .carrossel-container{
@@ -138,7 +138,6 @@ body{
     overflow-x: hidden;
     width: 100%;
     margin: 0 30px;
-    /* background-color: #fff; */
     padding: 0 10px;
 }
 
@@ -193,7 +192,7 @@ body{
 }
 
 .professores{
-    margin: 50px 0 50px 200px;
+    margin: 5% 0 5% 13%;
 }
 .cards-container{
     width: 90%;
@@ -243,35 +242,58 @@ body{
 }
 
 .fotos{
-    margin: 50px 0 50px 200px;
+    margin: 5% 0 5% 13%;
 }
 
 .fotos-container{
     width: 100%;
-    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
 }
 
-.linha{
+/* .linha{
     width: 100%;
     height: 280px;
     display: flex;
     flex-direction: row;
+} */
 
-}
 .col{
-    width: 33%;
     height: 100%;
+    margin-bottom: 0;
 }
 
 .col img, .col video, .col iframe{
     width: 100%;
-    height: 100%;
+    height: 280px;
     object-fit: cover;
-    margin-bottom: 0;
 }
 
 
+.indicadores {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 8px;
+}
 
+.indicadores .bolinha {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: background-color 0.3s;
+}
+
+.indicadores .ativo {
+    background-color: #333;
+}
+
+.carrossel .bloco {
+    display: flex;
+    gap: 20px;
+}
 
 
 
@@ -291,6 +313,7 @@ footer{
     width: 100%;
     padding: 30px 0;
     color: #fff;
+    margin-top: -10px;
 }
 
 .logo-footer{
@@ -378,10 +401,6 @@ footer .menu a{
 }
 
 @media (max-width: 430px) {
-    body{
-        height: 100vh;
-    }
-
     .cabecalho{
         height: 80px;
         z-index: 9;
@@ -404,8 +423,6 @@ footer .menu a{
     footer{
         text-align: center;
         padding: 15px 0;
-        position: absolute;
-        bottom: 0;
     }
 
     nav{
@@ -504,43 +521,6 @@ footer .menu a{
         top: 40px;
     }
 
-    .img-itens{
-        width: 100px;
-    }
-
-    .itens-professores p{
-        font-size: 12px;
-        width: 250px;
-        margin: 0 auto;
-    }
-
-    .itens-modalidades{
-        width: 100%;
-        margin: 0 auto;
-        justify-content: space-between;
-    }
-
-    .itens-modalidades p{
-        margin: 0 auto;
-        font-size: 12px;
-    }
-
-    .itens-modalidades .img-itens{
-        width: 100px;
-        height: 100px;
-    }
-
-    .container{
-        margin: 50px 0 0;
-        min-height: 200px;
-    }
-    .container-grande{
-        min-height: 85%;
-        position: relative;
-        padding-bottom: 180px;
-        margin-top: 150px;
-    }
-
     .menu-responsivo ul:first-child{
         padding: 80px 0;
     }
@@ -566,5 +546,60 @@ footer .menu a{
 
     .menu-responsivo ul li{
         position: relative;
+    }
+
+    .fotos-container{
+    width: 100%;
+    /* height:; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    }
+
+    .col img, .col video, .col iframe{
+        width: 100%;
+        height: 130px;
+        object-fit: cover;
+    }
+
+    .col iframe{
+        margin-bottom: -10px;
+    }
+
+    .carrossel-container{
+    margin: 20px auto;
+    display: flex;
+    width: 100%;
+    }
+
+    .carrossel{
+    /* display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+    margin: 10px;
+    padding: 0 2px; */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    }
+
+    
+    .bloco .item{
+    min-width: 60px;
+    height: 70px;
+    scroll-snap-align: start;
+    }
+
+    .carrossel .bloco {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+    flex: 0 0 100%; /* Ocupa 100% da largura da tela */
+    scroll-snap-align: start;
+}
+
+    .botao{
+        display: none;
     }
 }

@@ -61,3 +61,158 @@ btnRight.addEventListener('click', () => {
     carousel.scrollBy({ left: 1000, behavior: 'smooth' });
 });
 
+
+const carrossel = document.querySelector('.carrossel');
+const itens = document.querySelectorAll('.item');
+const indicadoresContainer = document.querySelector('.indicadores');
+
+const itemsPerPage = window.innerWidth <= 430 ? 4 : 6; // Ajuste conforme seu layout
+const totalPaginas = Math.ceil(itens.length / itemsPerPage);
+
+// Cria as bolinhas
+for (let i = 0; i < totalPaginas; i++) {
+    const bolinha = document.createElement('div');
+    bolinha.classList.add('bolinha');
+    if (i === 0) bolinha.classList.add('ativo');
+    indicadoresContainer.appendChild(bolinha);
+}
+
+const bolinhas = document.querySelectorAll('.indicadores .bolinha');
+
+// Função para atualizar as bolinhas ativas
+function atualizarIndicadores() {
+    const scrollLeft = carrossel.scrollLeft;
+    const larguraTotal = carrossel.scrollWidth - carrossel.clientWidth;
+    const porcentagem = scrollLeft / larguraTotal;
+    const index = Math.round(porcentagem * (totalPaginas - 1));
+
+    bolinhas.forEach((bolinha, i) => {
+        bolinha.classList.toggle('ativo', i === index);
+    });
+}
+
+// Escuta o evento de scroll do carrossel
+carrossel.addEventListener('scroll', atualizarIndicadores);
+
+// Atualiza ao clicar nos botões
+btnLeft.addEventListener('click', () => {
+    carrossel.scrollBy({ left: -1000, behavior: 'smooth' });
+});
+btnRight.addEventListener('click', () => {
+    carrossel.scrollBy({ left: 1000, behavior: 'smooth' });
+});
+
+
+// const carousel = document.querySelector('.carrossel');
+// const btnLeft = document.querySelector('.left');
+// const btnRight = document.querySelector('.right');
+// const blocos = document.querySelectorAll('.carrossel .bloco');
+// const indicadores = document.querySelectorAll('.indicadores .bolinha');
+
+// let indexAtual = 0;
+
+// // Função que atualiza o scroll e os indicadores
+// function atualizarCarrossel() {
+//     const largura = carousel.clientWidth;
+//     carousel.scrollTo({
+//         left: indexAtual * largura,
+//         behavior: 'smooth'
+//     });
+
+//     indicadores.forEach((dot, i) => {
+//         dot.classList.toggle('ativo', i === indexAtual);
+//     });
+// }
+
+// // Botão direito
+// btnRight.addEventListener('click', () => {
+//     if (indexAtual < blocos.length - 1) {
+//         indexAtual++;
+//         atualizarCarrossel();
+//     }
+// });
+
+// // Botão esquerdo
+// btnLeft.addEventListener('click', () => {
+//     if (indexAtual > 0) {
+//         indexAtual--;
+//         atualizarCarrossel();
+//     }
+// });
+
+// // Clicar nas bolinhas
+// indicadores.forEach((dot, i) => {
+//     dot.addEventListener('click', () => {
+//         indexAtual = i;
+//         atualizarCarrossel();
+//     });
+// });
+
+// // Scroll manual (com o dedo)
+// carousel.addEventListener('scroll', () => {
+//     const largura = carousel.clientWidth;
+//     const novoIndex = Math.round(carousel.scrollLeft / largura);
+//     if (novoIndex !== indexAtual) {
+//         indexAtual = novoIndex;
+//         atualizarCarrossel();
+//     }
+// });
+const numBolinhas = 2; // fixo
+
+// Supondo que as bolinhas estão no HTML com pelo menos 2 spans
+const indicadores = document.querySelectorAll('.indicadores .bolinha');
+
+// Limitar índice máximo para 1
+const maxIndex = numBolinhas - 1;
+
+function atualizarCarrossel() {
+    const largura = carousel.clientWidth;
+    carousel.scrollTo({
+        left: indexAtual * largura,
+        behavior: 'smooth'
+    });
+
+    indicadores.forEach((dot, i) => {
+        if (i < numBolinhas) {
+            dot.classList.toggle('ativo', i === indexAtual);
+        } else {
+            dot.style.display = 'none'; // oculta bolinhas extras
+        }
+    });
+}
+
+btnRight.addEventListener('click', () => {
+    if (indexAtual < maxIndex) {
+        indexAtual++;
+        atualizarCarrossel();
+    }
+});
+
+btnLeft.addEventListener('click', () => {
+    if (indexAtual > 0) {
+        indexAtual--;
+        atualizarCarrossel();
+    }
+});
+
+indicadores.forEach((dot, i) => {
+    if(i < numBolinhas) {
+        dot.addEventListener('click', () => {
+            indexAtual = i;
+            atualizarCarrossel();
+        });
+    } else {
+        dot.style.display = 'none';
+    }
+});
+
+// Ajuste no scroll para não passar do limite máximo
+carousel.addEventListener('scroll', () => {
+    const largura = carousel.clientWidth;
+    let novoIndex = Math.round(carousel.scrollLeft / largura);
+    if (novoIndex > maxIndex) novoIndex = maxIndex;
+    if (novoIndex !== indexAtual) {
+        indexAtual = novoIndex;
+        atualizarCarrossel();
+    }
+});
