@@ -216,3 +216,17 @@ carousel.addEventListener('scroll', () => {
         atualizarCarrossel();
     }
 });
+
+
+if (window.innerWidth <= 430) {
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const overlay = card.querySelector('.card-preto');
+            if (overlay) {
+                overlay.classList.toggle('ativo');
+        }
+        });
+    });
+}

@@ -616,4 +616,29 @@ footer .menu a{
   -ms-overflow-style: none;  /* Para IE e Edge */
   scrollbar-width: none;  /* Para Firefox */
 }
+.card-preto {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
+
+  /* Classe que o JS vai adicionar para mostrar */
+.card-preto.ativo {
+    opacity: 1 !important;
+}
+
+.cards-container {
+    display: grid;          /* garante que seja grid */
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
+    grid-template-rows: repeat(2, auto);   /* 2 linhas automáticas */
+    gap: 20px;   /* 2 linhas */
+    height: auto;
+}
+
+.cards-container .card {
+    width: 100%; /* card ocupa toda a coluna */
+    box-sizing: border-box; /* evita que padding/margin aumentem o tamanho */
+    /* opcional: ajustar altura mínima se quiser */
+    min-height: 150px;
+}
+}
+
