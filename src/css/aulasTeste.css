@@ -573,11 +573,6 @@ footer .menu a{
     }
 
     .carrossel{
-    /* display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 5px;
-    margin: 10px;
-    padding: 0 2px; */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -595,11 +590,30 @@ footer .menu a{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 15px;
-    flex: 0 0 100%; /* Ocupa 100% da largura da tela */
+    flex: 0 0 100%; 
     scroll-snap-align: start;
 }
 
     .botao{
         display: none;
     }
+
+    .item img{
+    width: 30px;
+    padding: 5px 0;
+}
+
+    .item p{
+        font-size: 12px;
+}
+
+.carrossel::-webkit-scrollbar {
+  display: none;  /* Para Chrome, Safari e Opera */
+}
+
+.carrossel {
+  /* overflow-x: hidden;  */
+  -ms-overflow-style: none;  /* Para IE e Edge */
+  scrollbar-width: none;  /* Para Firefox */
+}
 }
