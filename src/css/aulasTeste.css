@@ -619,11 +619,13 @@ footer .menu a{
 .card-preto {
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
   /* Classe que o JS vai adicionar para mostrar */
 .card-preto.ativo {
-    opacity: 1 !important;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .cards-container {
