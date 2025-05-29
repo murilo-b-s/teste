@@ -218,15 +218,15 @@ carousel.addEventListener('scroll', () => {
 });
 
 
-if (window.innerWidth <= 430) {
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            const overlay = card.querySelector('.card-preto');
-            if (overlay) {
-                overlay.classList.toggle('ativo');
-        }
-        });
-    });
-}
+// const cards = document.querySelectorAll('.card');
+// // const cardPreto = card.querySelectorAll('.cardPreto')
+// cards.forEach(card => {
+//     card.addEventListener('click', () => {
+//         if (window.innerWidth <= 430) {
+//             const cardPreto = card.querySelector('.card-preto');
+//             if (cardPreto) {
+//                 cardPreto.classList.toggle('ativo');
+//             }
+//         }
+//     });
+// });

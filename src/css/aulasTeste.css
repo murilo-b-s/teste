@@ -228,7 +228,7 @@ body{
     position: absolute;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    opacity: 0.1;
     transition: opacity 0.5s ease;
 }
 
@@ -616,16 +616,17 @@ footer .menu a{
   -ms-overflow-style: none;  /* Para IE e Edge */
   scrollbar-width: none;  /* Para Firefox */
 }
-.card-preto {
+.card .card-preto {
     opacity: 0;
     transition: opacity 0.3s ease;
-    pointer-events: none;
+    /* pointer-events: none; */
+    /* z-index: 9; */
 }
 
   /* Classe que o JS vai adicionar para mostrar */
-.card-preto.ativo {
+.card .card-preto.ativo {
     opacity: 1;
-    pointer-events: auto;
+    /* pointer-events: auto; */
 }
 
 .cards-container {
@@ -641,6 +642,10 @@ footer .menu a{
     box-sizing: border-box; /* evita que padding/margin aumentem o tamanho */
     /* opcional: ajustar altura mínima se quiser */
     min-height: 150px;
+}
+
+.card:hover .card-preto{
+    opacity: 0;
 }
 }
 
