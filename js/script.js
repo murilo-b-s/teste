@@ -207,15 +207,33 @@ indicadores.forEach((dot, i) => {
 });
 
 // Ajuste no scroll para não passar do limite máximo
-carousel.addEventListener('scroll', () => {
-    const largura = carousel.clientWidth;
-    let novoIndex = Math.round(carousel.scrollLeft / largura);
-    if (novoIndex > maxIndex) novoIndex = maxIndex;
-    if (novoIndex !== indexAtual) {
-        indexAtual = novoIndex;
-        atualizarCarrossel();
+const cards = document.querySelectorAll('.card');
+
+// Detecta se é dispositivo mobile
+const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth <= 768;
+
+cards.forEach(card => {
+    const overlay = card.querySelector('.card-preto');
+
+    if (isMobile) {
+        // Para mobile: toggle no clique
+        card.addEventListener('click', () => {
+            const isVisible = overlay.style.opacity === '1';
+            // Fecha todos antes de abrir outro
+            document.querySelectorAll('.card .card-preto').forEach(o => o.style.opacity = '0.1');
+            overlay.style.opacity = isVisible ? '0.1' : '1';
+        });
+    } else {
+        // Para desktop: aparece no hover
+        card.addEventListener('mouseenter', () => {
+            overlay.style.opacity = '1';
+        });
+        card.addEventListener('mouseleave', () => {
+            overlay.style.opacity = '0.1';
+        });
     }
 });
+
 
 
 // const cards = document.querySelectorAll('.card');
