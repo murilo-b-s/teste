@@ -1,19 +1,4 @@
-// document.getElementById('btn').
-// addEventListener('click', function() {
-//     this.classList.toggle('open');
 
-//     document.getElementById('menu-responsivo').classList.toggle('aberto');
-// });
-
-// const btnAulas = document.getElementById('submenu-responsivo');
-// const submenu = document.querySelector('.mais-opcoes');
-
-// btnAulas.addEventListener('click', (e) => {
-// e.preventDefault();
-// submenu.classList.toggle('ativo');
-// });
-
-// Controle do menu hamburguer
 document.getElementById('btn').addEventListener('click', function() {
     this.classList.toggle('open');
 
@@ -103,67 +88,13 @@ btnRight.addEventListener('click', () => {
 });
 
 
-// const carousel = document.querySelector('.carrossel');
-// const btnLeft = document.querySelector('.left');
-// const btnRight = document.querySelector('.right');
-// const blocos = document.querySelectorAll('.carrossel .bloco');
-// const indicadores = document.querySelectorAll('.indicadores .bolinha');
-
-// let indexAtual = 0;
-
-// // Função que atualiza o scroll e os indicadores
-// function atualizarCarrossel() {
-//     const largura = carousel.clientWidth;
-//     carousel.scrollTo({
-//         left: indexAtual * largura,
-//         behavior: 'smooth'
-//     });
-
-//     indicadores.forEach((dot, i) => {
-//         dot.classList.toggle('ativo', i === indexAtual);
-//     });
-// }
-
-// // Botão direito
-// btnRight.addEventListener('click', () => {
-//     if (indexAtual < blocos.length - 1) {
-//         indexAtual++;
-//         atualizarCarrossel();
-//     }
-// });
-
-// // Botão esquerdo
-// btnLeft.addEventListener('click', () => {
-//     if (indexAtual > 0) {
-//         indexAtual--;
-//         atualizarCarrossel();
-//     }
-// });
-
-// // Clicar nas bolinhas
-// indicadores.forEach((dot, i) => {
-//     dot.addEventListener('click', () => {
-//         indexAtual = i;
-//         atualizarCarrossel();
-//     });
-// });
-
-// // Scroll manual (com o dedo)
-// carousel.addEventListener('scroll', () => {
-//     const largura = carousel.clientWidth;
-//     const novoIndex = Math.round(carousel.scrollLeft / largura);
-//     if (novoIndex !== indexAtual) {
-//         indexAtual = novoIndex;
-//         atualizarCarrossel();
-//     }
-// });
 const numBolinhas = 2; // fixo
 
 // Supondo que as bolinhas estão no HTML com pelo menos 2 spans
 const indicadores = document.querySelectorAll('.indicadores .bolinha');
 
 // Limitar índice máximo para 1
-const maxIndex = numBolinhas - 1;
+const maxIndex = numBolinhas - 2;
 
 function atualizarCarrossel() {
     const largura = carousel.clientWidth;
@@ -220,8 +151,8 @@ cards.forEach(card => {
         card.addEventListener('click', () => {
             const isVisible = overlay.style.opacity === '1';
             // Fecha todos antes de abrir outro
-            document.querySelectorAll('.card .card-preto').forEach(o => o.style.opacity = '0.1');
-            overlay.style.opacity = isVisible ? '0.1' : '1';
+            document.querySelectorAll('.card .card-preto').forEach(o => o.style.opacity = '0');
+            overlay.style.opacity = isVisible ? '0' : '1';
         });
     } else {
         // Para desktop: aparece no hover
@@ -229,7 +160,7 @@ cards.forEach(card => {
             overlay.style.opacity = '1';
         });
         card.addEventListener('mouseleave', () => {
-            overlay.style.opacity = '0.1';
+            overlay.style.opacity = '0';
         });
     }
 });
