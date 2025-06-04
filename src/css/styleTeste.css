@@ -9,6 +9,7 @@ html{
 
 body{
     font-family: "Josefin Sans" !important;
+    background-color: #f3ebd6 !important;
 }
 .menu-responsivo{
     display: none;
@@ -159,7 +160,6 @@ body{
 }
 
 .motivos{
-    background-color: #fff2d0;
     color: #000;
     padding-bottom: 20px;
 }
@@ -335,6 +335,7 @@ footer .menu a{
 }
 
 @media (max-width: 430px) {
+
     .cabecalho{
         height: 80px;
         z-index: 9;
@@ -346,12 +347,13 @@ footer .menu a{
 
 
     .banner{
-        height: 100px;
+        height: 180px;
         top: 80px;
+        background-image: url(../imagens/banner3.jpg);
     }
 
     .slogan{
-        margin-top: 80px;
+        margin-top: 70px;
     }
 
     .slogan h1{
