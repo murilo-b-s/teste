@@ -621,7 +621,7 @@ footer .menu a{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
-    gap: 0;
+    gap: 3px;
     height: auto;
     width: 100%;
 }
@@ -632,6 +632,7 @@ footer .menu a{
     min-height: 150px;
     border-radius: 4px;
     height: 300px;
+    box-shadow: 2px 2px 2px 0px #777;
 }
 
 .card img{
